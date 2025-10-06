@@ -159,7 +159,7 @@ Author: Fluorine Zhu (正七价的氟离子)
 
 ### 📋 系统要求
 
-- PixInsight 1.8 或更高版本
+- PixInsight 1.8.9-2 或更高版本
 - 带有标准头信息的 FITS 或 XISF 图像文件
 
 ### 🚀 安装方法

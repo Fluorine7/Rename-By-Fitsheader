@@ -13,7 +13,7 @@
    <platform os="all" arch="noarch" version="1.8.9:1.9.3">
       <package
          fileName="rename_xisf_fits.zip"
-         sha1="(0bc05a25e37736da0aa94c411bc933ef5a29cec6)"
+         sha1="0bc05a25e37736da0aa94c411bc933ef5a29cec6"
          type="script"
          releaseDate="20251006">
 

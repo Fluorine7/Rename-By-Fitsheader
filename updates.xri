@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xri version="1.0"
+     xmlns="http://www.pixinsight.com/xri"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.pixinsight.com/xri http://pixinsight.com/xri/xri-1.0.xsd">
+
+   <description>
+      <p><b>Fluorine Zhu Scripts for PixInsight</b></p>
+      <p>A PixInsight PJSR script for batch renaming FITS/XISF astronomy images based on FITS header keywords with customizable filename templates.</p>
+      <p>Repository: https://github.com/Fluorine7/Rename-By-Fitsheader</p>
+   </description>
+
+   <platform os="all" arch="noarch" version="1.8.9:1.9.3">
+      <package
+         fileName="rename_xisf_fits.zip"
+         sha1="(0bc05a25e37736da0aa94c411bc933ef5a29cec6)"
+         type="script"
+         releaseDate="20251006">
+
+         <title>Rename By FITSHeader v1.1.0</title>
+
+         <description>
+            <p><b>Rename-By-FITSHeader v1.1.0</b> — A PixInsight PJSR script for batch renaming FITS/XISF astronomy images based on FITS header keywords with customizable filename templates.</p>
+
+            <p><b>Features:</b></p>
+            <ul>
+               <li>Batch rename image files using any FITS/XISF header keyword</li>
+               <li>Support for flexible filename templates (e.g., <code>$OBJECT_$DATE-OBS_$FILTER</code>)</li>
+               <li>Automatic detection of FITS/XISF headers and case-insensitive key matching</li>
+               <li>Support for both Windows and macOS file systems</li>
+               <li>Console logging and progress reporting within PixInsight</li>
+            </ul>
+
+            <p><b>Installation:</b></p>
+            <p>This script will be installed in: <code>SCRIPT → Batch Processing → Rename-By-FITSHeader</code></p>
+
+            <p><b>Version:</b> 1.0.0 (2025-10-06)</p>
+            <p><b>Author:</b> Fluorine Zhu</p>
+            <p><b>License:</b> All Rights Reserved © 2025</p>
+         </description>
+      </package>
+   </platform>
+
+</xri>

@@ -33,7 +33,7 @@ A PixInsight PJSR script for batch renaming FITS/XISF astronomy images based on 
 2. Click `Add` to add a new repository
 3. Choose the appropriate repository URL based on your location:
    - **For users in China (国内用户)**: `https://cnb.cool/Fluorine7/Rename-By-Fitsheader/-/git/raw/main/updates.xri?download=true`
-   - **For international users (海外用户)**: `https://raw.githubusercontent.com/Fluorine7/Rename-By-Fitsheader/main/updates.xri`
+   - **For international users (海外用户)**: `https://raw.githubusercontent.com/Fluorine7/Rename-By-Fitsheader/main/`
 4. Click `OK` to save the repository
 5. **Important**: When you see the warning "The update repository has no valid signature" with the message "The authenticity of downloaded update packages cannot be verified. Download anyway?", click **Yes** to continue. This is normal for third-party repositories.
 6. Go to `Resources` → `Updates` → `Check for Updates`
@@ -185,7 +185,7 @@ Author: Fluorine Zhu (正七价的氟离子)
 2. 点击 `Add` 添加新仓库
 3. 根据你的地理位置选择合适的仓库地址：
    - **国内用户**: `https://cnb.cool/Fluorine7/Rename-By-Fitsheader/-/git/raw/main/updates.xri?download=true`
-   - **海外用户**: `https://raw.githubusercontent.com/Fluorine7/Rename-By-Fitsheader/main/updates.xri`
+   - **海外用户**: `https://raw.githubusercontent.com/Fluorine7/Rename-By-Fitsheader/main/`
 4. 点击 `OK` 保存仓库
 5. **重要提示**：当出现警告 "The update repository has no valid signature"（更新仓库没有有效签名）并询问 "The authenticity of downloaded update packages cannot be verified. Download anyway?"（无法验证下载更新包的真实性，仍要下载吗？）时，请点击 **Yes** 继续。这对于第三方仓库是正常现象。
 6. 进入 `Resources` → `Updates` → `Check for Updates`

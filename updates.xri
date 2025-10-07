@@ -13,14 +13,14 @@
    <platform os="all" arch="noarch" version="1.8.9:1.9.3">
       <package
          fileName="rename_xisf_fits.zip"
-         sha1="4a4c362ac9948262daf5d792cf74802c906447c3"
+         sha1="5e0997dce365b72fa768b46bfa82774cb39c5997"
          type="script"
-         releaseDate="20251006">
+         releaseDate="20251007">
 
-         <title>Rename By FITSHeader v1.1.0</title>
+         <title>Rename By FITSHeader v1.1.1</title>
 
          <description>
-            <p><b>Rename-By-FITSHeader v1.1.0</b> — A PixInsight PJSR script for batch renaming FITS/XISF astronomy images based on FITS header keywords with customizable filename templates.</p>
+            <p><b>Rename-By-FITSHeader v1.1.1</b> — A PixInsight PJSR script for batch renaming FITS/XISF astronomy images based on FITS header keywords with customizable filename templates.</p>
 
             <p><b>Features:</b></p>
             <ul>
@@ -32,9 +32,9 @@
             </ul>
 
             <p><b>Installation:</b></p>
-            <p>This script will be installed in: <code>SCRIPT → Batch Processing → Rename-By-FITSHeader</code></p>
+            <p>This script will be installed in: <code>SCRIPT → Batch Processing → Rename By FITSHeader</code></p>
 
-            <p><b>Version:</b> 1.1.0 (2025-10-06)</p>
+            <p><b>Version:</b> 1.1.1 (2025-10-07)</p>
             <p><b>Author:</b> Fluorine Zhu</p>
             <p><b>License:</b> All Rights Reserved © 2025</p>
          </description>

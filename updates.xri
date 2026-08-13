@@ -1,44 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xri version="1.0"
-     xmlns="http://www.pixinsight.com/xri"
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:schemaLocation="http://www.pixinsight.com/xri http://pixinsight.com/xri/xri-1.0.xsd">
-
+<xri version="1.0">
    <description>
-      <p><b>Fluorine Zhu Scripts for PixInsight</b></p>
-      <p>A PixInsight PJSR script for batch renaming FITS/XISF astronomy images based on FITS header keywords with customizable filename templates.</p>
-      <p>Repository: https://github.com/Fluorine7/Rename-By-Fitsheader</p>
+      <p><b>Fluorine7 PixInsight Batch Scripts</b></p>
+      <p>V8-compatible batch-processing scripts for PixInsight 1.9.4 and later.</p>
+      <p>Repository: https://github.com/Fluorine7/Fluorine7-PixInsight-Scripts</p>
    </description>
 
-   <platform os="all" arch="noarch" version="1.8.9:1.9.3">
-      <package
-         fileName="rename_xisf_fits.zip"
-         sha1="5e0997dce365b72fa768b46bfa82774cb39c5997"
-         type="script"
-         releaseDate="20251007">
-
-         <title>Rename By FITSHeader v1.1.1</title>
-
+   <platform os="all" arch="noarch" version="1.9.4:2.0.0">
+      <package fileName="Fluorine7BatchScripts-1.0.0.zip"
+               sha1="df62401f3a6b1d8bbf89969b6cc602e2be0eee49"
+               type="script"
+               releaseDate="20260813">
+         <title>Fluorine7 PixInsight Batch Scripts 1.0.0</title>
+         <remove>src/scripts/rename_xisf_fits.js</remove>
          <description>
-            <p><b>Rename-By-FITSHeader v1.1.1</b> — A PixInsight PJSR script for batch renaming FITS/XISF astronomy images based on FITS header keywords with customizable filename templates.</p>
-
-            <p><b>Features:</b></p>
+            <p>First combined V8 release for PixInsight 1.9.4 and later.</p>
             <ul>
-               <li>Batch rename image files using any FITS/XISF header keyword</li>
-               <li>Support for flexible filename templates (e.g., <code>$OBJECT_$DATE-OBS_$FILTER</code>)</li>
-               <li>Automatic detection of FITS/XISF headers and case-insensitive key matching</li>
-               <li>Support for both Windows and macOS file systems</li>
-               <li>Console logging and progress reporting within PixInsight</li>
+               <li>Rename By FITS Header 1.2</li>
+               <li>Expand Integration 1.3</li>
+               <li>Batch Image Keyword Editor 4.0</li>
             </ul>
-
-            <p><b>Installation:</b></p>
-            <p>This script will be installed in: <code>SCRIPT → Batch Processing → Rename By FITSHeader</code></p>
-
-            <p><b>Version:</b> 1.1.1 (2025-10-07)</p>
-            <p><b>Author:</b> Fluorine Zhu</p>
-            <p><b>License:</b> All Rights Reserved © 2025</p>
+            <p>All scripts are installed under Script &gt; Batch Processing.</p>
          </description>
       </package>
    </platform>
-
 </xri>

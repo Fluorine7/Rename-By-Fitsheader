@@ -1,0 +1,4 @@
+*.xssk
+.DS_Store
+build/
+*.tmp

@@ -1,307 +1,119 @@
-# Rename By FITS Header
+# Fluorine7 PixInsight Batch Scripts
 
 [English](#english) | [中文](#中文)
 
----
+> This repository supersedes the former **Rename-By-Fitsheader** repository.
 
 ## English
 
-A PixInsight PJSR script for batch renaming FITS/XISF astronomy images based on FITS header keywords with customizable filename templates.
+Three batch-processing scripts for **PixInsight 1.9.4 or later** and its V8 JavaScript runtime. All three appear under `Script > Batch Processing`.
 
-### Features
+| Script | Version | Purpose | License |
+|---|---:|---|---|
+| Rename By FITS Header | 1.2 | Copy or rename FITS/XISF files with customizable header keyword templates | MIT |
+| Expand Integration | 1.3 | Perform sliding-window ImageIntegration for time-series data | MIT |
+| Batch Image Keyword Editor | 4.0 | Add, edit, or remove FITS-compatible keywords in FITS/XISF files | GPL-3.0-only |
 
-- **Flexible Template System**: Create custom filename patterns using FITS header keywords
-- **Batch Processing**: Rename multiple files at once
-- **Safe Operations**: 
-  - Dry-run mode for preview before actual renaming
-  - Copy mode (keep originals) or Move mode (rename in place)
-  - Automatic duplicate handling with sequential numbering
-- **Wide Format Support**: Works with FITS (.fits, .fit, .fts) and XISF (.xisf) files
-- **Rich Keyword Support**: Object name, filter, exposure time, temperature, timestamps, and more
-- **User-Friendly GUI**: Easy-to-use dialog with real-time preview
+### Update repository installation
 
-###  Requirements
+1. Open `Resources > Updates > Manage Repositories` in PixInsight.
+2. Add this repository URL:
 
-- PixInsight 1.8.9-2 or later
-- FITS or XISF image files with standard headers
+   ```text
+   https://raw.githubusercontent.com/Fluorine7/Fluorine7-PixInsight-Scripts/main/
+   ```
 
-### 🚀 Installation
+3. Open `Resources > Updates > Check for Updates` and install **Fluorine7 PixInsight Batch Scripts**.
+4. Restart PixInsight if requested.
 
-#### Method 1: Automatic Installation via Update Repository (Recommended)
+Until the repository has a valid Certified PixInsight Developer signature, PixInsight may warn that its authenticity cannot be verified. Review the source and package before accepting an unsigned update.
 
-1. In PixInsight, go to `Resources` → `Updates` → `Manage Repositories`
-2. Click `Add` to add a new repository
-3. Choose the appropriate repository URL based on your location:
-   - **For users in China (国内用户)**: `https://cnb.cool/Fluorine7/Rename-By-Fitsheader/-/git/raw/main/updates.xri?download=true`
-   - **For international users (海外用户)**: `https://raw.githubusercontent.com/Fluorine7/Rename-By-Fitsheader/main/`
-4. Click `OK` to save the repository
-5. **Important**: When you see the warning "The update repository has no valid signature" with the message "The authenticity of downloaded update packages cannot be verified. Download anyway?", click **Yes** to continue. This is normal for third-party repositories.
-6. Go to `Resources` → `Updates` → `Check for Updates`
-7. Install the script from the available updates
-8. The script will appear in your Scripts menu
+### Manual installation
 
-#### Method 2: Manual Installation
+Download the current package archive from this repository, extract it, then use `Script > Feature Scripts... > Add` and select its `src/scripts/Fluorine7` directory.
 
-1. Download `rename_xisf_fits.zip` from this repository and unzip file
-2. In PixInsight, go to `Script` → `Feature Scripts...`
-3. Click `Add` and select the downloaded script file
-4. The script will appear in your Scripts menu
+### Rename By FITS Header
 
-### 📖 Usage
+- Templates such as `{OBJECT}_{FILTER}_{timestamp}`
+- FITS, FIT, FTS, and XISF input
+- First-file preview and non-destructive preview of all files
+- Copy mode by default; optional move/delete-original mode with confirmation
+- Collision-safe sequential names
+- Optional millisecond timestamps and output directory
 
-1. Launch the script from `Script` → `Rename By FITS Header`
-2. Click `Add Files` to select your FITS/XISF images
-3. Customize the filename template using available keywords
-4. Preview the result in real-time
-5. Choose operation mode:
-   - **Dry-run**: Preview only, no files modified
-   - **Copy mode** (default): Create renamed copies, keep originals
-   - **Move mode**: Rename files in place, delete originals
-6. Click `Execute` to process files
+Changing the forced suffix only changes the filename. It does **not** convert the image format.
 
-### 🏷️ Supported Keywords
+### Expand Integration
 
-| Keyword | Description | Example Output |
-|---------|-------------|----------------|
-| `{OBJECT}` | Target object name | M31, NGC7000 |
-| `{FILTER}` | Filter name (uppercase) | HA, OIII, L, R |
-| `{IMAGETYP}` | Image type | LIGHT, DARK, FLAT |
-| `{EXPOSURE}` | Exposure time in seconds | 300, 120 |
-| `{EXPTIME}` | Same as EXPOSURE | 300 |
-| `{GAIN}` | Camera gain setting | 100, 139 |
-| `{OFFSET}` | Camera offset setting | 10, 50 |
-| `{CCD-TEMP}` | CCD temperature | 10C, 20C |
-| `{XBINNING}` | X-axis binning | 1, 2 |
-| `{YBINNING}` | Y-axis binning | 1, 2 |
-| `{INSTRUME}` | Camera/instrument name | ASI2600MM |
-| `{TELESCOP}` | Telescope name | FSQ106 |
-| `{timestamp}` | Full UTC timestamp | 20250106203045 |
-| `{date}` | Date only | 20250106 |
-| `{time}` | Time only | 203045 |
-| `{DATE-OBS}` | Observation date/time | 20250106203045 |
-| `{DATE-LOC}` | Local date/time | 20250106203045 |
+- Sliding window size and step
+- Configurable ImageIntegration combination, normalization, rejection, and range clipping
+- Optional LocalNormalization files
+- Multiple ImageIntegration weighting modes
+- Observation-time metadata written to generated integrations
 
-### 📝 Template Examples
+### Batch Image Keyword Editor
 
-**Default Template:**
-```
-{OBJECT}_{FILTER}_{timestamp}
-```
-Output: `M31_HA_20250106203045.fits`
+Based on `BatchFITSKeywordEdit` by Mike Cranfield and substantially reworked by Fluorine Zhu. It remains GPL-3.0-only and preserves original attribution.
 
-**Simple Template:**
-```
-{OBJECT}_{FILTER}_{EXPOSURE}s
-```
-Output: `NGC7000_OIII_300s.fits`
+- FITS/XISF metadata validation
+- Add, edit, and remove keyword operations
+- Reference keyword copying and manual fallback
+- Output conflict planning and transactional replacement
 
-**Detailed Template:**
-```
-{date}_{OBJECT}_{FILTER}_{EXPOSURE}s_{GAIN}g_{CCD-TEMP}
-```
-Output: `20250106_M31_HA_300s_100g_10C.fits`
+### Licensing
 
-**Calibration Files:**
-```
-{IMAGETYP}_{FILTER}_{CCD-TEMP}_{EXPOSURE}s
-```
-Output: `DARK_L_10C_300s.fits`
+This is a multi-license repository:
 
-### ⚙️ Options
+- `Rename By FITS Header` and `Expand Integration`: [MIT](LICENSES/MIT.txt)
+- `Batch Image Keyword Editor`: [GPL-3.0-only](LICENSES/GPL-3.0-only.txt)
 
-- **Template**: Custom filename pattern using keywords
-- **Force Extension**: Override file extension (e.g., `xisf` or `fits`)
-- **Dry-run**: Preview renaming without modifying files
-- **Move Mode**: When enabled, deletes original files after renaming (use with caution!)
+See each source file's copyright and SPDX notice. The GPL script is not relicensed under MIT.
 
-### ⚠️ Important Notes
+### Source and issue tracker
 
-1. **Always test with dry-run first** to verify the naming pattern
-2. **Move mode is destructive** - original files will be deleted
-3. **Duplicate names** are automatically handled with `_01`, `_02` suffixes
-4. **Invalid characters** in filenames are replaced with underscores
-5. **Backup your data** before using move mode
-
-### 🐛 Troubleshooting
-
-**Preview shows "Error"**
-- Check if files have valid FITS headers
-- Verify template syntax is correct
-
-**Files not renamed**
-- Ensure dry-run mode is disabled
-- Check file permissions in the directory
-
-**Missing keyword values**
-- Script will use "NA", "0", or "UNTITLED" as fallbacks
-- Verify your FITS headers contain the required keywords
-
-### 📄 License
-
-Copyright © 2025 Fluorine Zhu (正七价的氟离子)
-
-MIT License - see LICENSE file for details
-
-### 🤝 Contributing
-
-Issues and pull requests are welcome! Feel free to:
-- Report bugs
-- Suggest new features
-- Improve documentation
-- Add support for more FITS keywords
-
-### 📧 Contact
-
-Author: Fluorine Zhu (正七价的氟离子)
+- Repository: <https://github.com/Fluorine7/Fluorine7-PixInsight-Scripts>
+- Issues: <https://github.com/Fluorine7/Fluorine7-PixInsight-Scripts/issues>
 
 ---
 
 ## 中文
 
-一个用于批量重命名 FITS/XISF 天文图像的 PixInsight PJSR 脚本，支持基于 FITS 头关键字的自定义文件名模板。
+这是面向 **PixInsight 1.9.4 或更高版本**、使用 V8 JavaScript 运行时的批处理脚本合集。三个脚本均位于 `Script > Batch Processing`。
 
-### ✨ 功能特性
+| 脚本 | 版本 | 用途 | 许可证 |
+|---|---:|---|---|
+| Rename By FITS Header | 1.2 | 根据 FITS/XISF 头关键字模板复制或重命名文件 | MIT |
+| Expand Integration | 1.3 | 对时间序列图像执行滑动窗口叠加 | MIT |
+| Batch Image Keyword Editor | 4.0 | 批量添加、编辑或删除 FITS 兼容关键字 | GPL-3.0-only |
 
-- **灵活的模板系统**：使用 FITS 头关键字创建自定义文件名格式
-- **批量处理**：一次性重命名多个文件
-- **安全操作**：
-  - 预览模式（dry-run），执行前查看结果
-  - 复制模式（保留原文件）或移动模式（就地重命名）
-  - 自动处理重复文件名，添加序号
-- **广泛的格式支持**：支持 FITS (.fits, .fit, .fts) 和 XISF (.xisf) 文件
-- **丰富的关键字支持**：目标名称、滤镜、曝光时间、温度、时间戳等
-- **友好的图形界面**：易用的对话框，实时预览重命名结果
+### 通过更新仓库安装
 
-### 📋 系统要求
+1. 在 PixInsight 中打开 `Resources > Updates > Manage Repositories`。
+2. 添加：
 
-- PixInsight 1.8.9-2 或更高版本
-- 带有标准头信息的 FITS 或 XISF 图像文件
+   ```text
+   https://raw.githubusercontent.com/Fluorine7/Fluorine7-PixInsight-Scripts/main/
+   ```
 
-### 🚀 安装方法
+3. 打开 `Resources > Updates > Check for Updates`，安装 **Fluorine7 PixInsight Batch Scripts**。
+4. 如有提示，重启 PixInsight。
 
-#### 方法一：通过更新仓库自动安装（推荐）
+在仓库取得有效的 Certified PixInsight Developer 签名前，PixInsight 可能提示无法验证仓库真实性。接受未签名更新前，请先检查源码和安装包。
 
-1. 在 PixInsight 中，进入 `Resources` → `Updates` → `Manage Repositories`
-2. 点击 `Add` 添加新仓库
-3. 根据你的地理位置选择合适的仓库地址：
-   - **国内用户**: `https://cnb.cool/Fluorine7/Rename-By-Fitsheader/-/git/raw/main/updates.xri?download=true`
-   - **海外用户**: `https://raw.githubusercontent.com/Fluorine7/Rename-By-Fitsheader/main/`
-4. 点击 `OK` 保存仓库
-5. **重要提示**：当出现警告 "The update repository has no valid signature"（更新仓库没有有效签名）并询问 "The authenticity of downloaded update packages cannot be verified. Download anyway?"（无法验证下载更新包的真实性，仍要下载吗？）时，请点击 **Yes** 继续。这对于第三方仓库是正常现象。
-6. 进入 `Resources` → `Updates` → `Check for Updates`
-7. 从可用更新中安装脚本
-8. 脚本将出现在 Scripts 菜单中
+### 手动安装
 
-#### 方法二：手动安装
+下载并解压当前安装包，然后打开 `Script > Feature Scripts... > Add`，选择其中的 `src/scripts/Fluorine7` 目录。
 
-1. 从本仓库下载`rename_xisf_fits.zip` 并解压文件
-2. 在 PixInsight 中，进入 `Script` → `Feature Scripts...`
-3. 点击 `Add` 并选择下载的脚本文件
-4. 脚本将出现在 Scripts 菜单中
+### 许可证
 
-### 📖 使用说明
+本仓库采用多许可证方式：
 
-1. 从 `Script` → `Rename By FITS Header` 启动脚本
-2. 点击 `Add Files` 选择你的 FITS/XISF 图像
-3. 使用可用关键字自定义文件名模板
-4. 实时预览重命名结果
-5. 选择操作模式：
-   - **Dry-run（预览模式）**：仅预览，不修改文件
-   - **Copy mode（复制模式，默认）**：创建重命名副本，保留原文件
-   - **Move mode（移动模式）**：就地重命名，删除原文件
-6. 点击 `Execute` 执行处理
+- `Rename By FITS Header`、`Expand Integration`：[MIT](LICENSES/MIT.txt)
+- `Batch Image Keyword Editor`：[GPL-3.0-only](LICENSES/GPL-3.0-only.txt)
 
-### 🏷️ 支持的关键字
+Batch Image Keyword Editor 基于 Mike Cranfield 的 GPLv3 项目修改，已保留原作者署名和 GPLv3 条款，不能按 MIT 重新授权。
 
-| 关键字 | 说明 | 输出示例 |
-|--------|------|----------|
-| `{OBJECT}` | 目标天体名称 | M31, NGC7000 |
-| `{FILTER}` | 滤镜名称（大写） | HA, OIII, L, R |
-| `{IMAGETYP}` | 图像类型 | LIGHT, DARK, FLAT |
-| `{EXPOSURE}` | 曝光时间（秒） | 300, 120 |
-| `{EXPTIME}` | 同 EXPOSURE | 300 |
-| `{GAIN}` | 相机增益 | 100, 139 |
-| `{OFFSET}` | 相机偏置 | 10, 50 |
-| `{CCD-TEMP}` | CCD 温度 | 10C, 20C |
-| `{XBINNING}` | X 轴合并 | 1, 2 |
-| `{YBINNING}` | Y 轴合并 | 1, 2 |
-| `{INSTRUME}` | 相机/设备名称 | ASI2600MM |
-| `{TELESCOP}` | 望远镜名称 | FSQ106 |
-| `{timestamp}` | 完整 UTC 时间戳 | 20250106203045 |
-| `{date}` | 仅日期 | 20250106 |
-| `{time}` | 仅时间 | 203045 |
-| `{DATE-OBS}` | 观测日期时间 | 20250106203045 |
-| `{DATE-LOC}` | 本地日期时间 | 20250106203045 |
+### 源码与问题反馈
 
-### 📝 模板示例
-
-**默认模板：**
-```
-{OBJECT}_{FILTER}_{timestamp}
-```
-输出：`M31_HA_20250106203045.fits`
-
-**简单模板：**
-```
-{OBJECT}_{FILTER}_{EXPOSURE}s
-```
-输出：`NGC7000_OIII_300s.fits`
-
-**详细模板：**
-```
-{date}_{OBJECT}_{FILTER}_{EXPOSURE}s_{GAIN}g_{CCD-TEMP}
-```
-输出：`20250106_M31_HA_300s_100g_10C.fits`
-
-**校准文件：**
-```
-{IMAGETYP}_{FILTER}_{CCD-TEMP}_{EXPOSURE}s
-```
-输出：`DARK_L_10C_300s.fits`
-
-### ⚙️ 选项说明
-
-- **Template（模板）**：使用关键字的自定义文件名格式
-- **Force Extension（强制扩展名）**：覆盖文件扩展名（如 `xisf` 或 `fits`）
-- **Dry-run（预览模式）**：预览重命名而不修改文件
-- **Move Mode（移动模式）**：启用后将删除原文件（谨慎使用！）
-
-### ⚠️ 重要提示
-
-1. **始终先使用预览模式测试**以验证命名格式
-2. **移动模式会删除原文件** - 操作不可逆
-3. **重复文件名**会自动添加 `_01`、`_02` 等后缀
-4. **文件名中的非法字符**会被替换为下划线
-5. **使用移动模式前请备份数据**
-
-### 🐛 故障排除
-
-**预览显示"Error"**
-- 检查文件是否有有效的 FITS 头
-- 验证模板语法是否正确
-
-**文件未被重命名**
-- 确保已禁用预览模式
-- 检查目录的文件权限
-
-**关键字值缺失**
-- 脚本会使用 "NA"、"0" 或 "UNTITLED" 作为后备值
-- 验证 FITS 头是否包含所需关键字
-
-### 📄 许可证
-
-Copyright © 2025 Fluorine Zhu (正七价的氟离子)
-
-MIT License - 详见 LICENSE 文件
-
-### 🤝 贡献
-
-欢迎提交 Issues 和 Pull Requests！你可以：
-- 报告 Bug
-- 建议新功能
-- 改进文档
-- 添加更多 FITS 关键字支持
-
-### 📧 联系方式
-
-作者：正七价的氟离子（Fluorine Zhu）
+- 仓库：<https://github.com/Fluorine7/Fluorine7-PixInsight-Scripts>
+- Issues：<https://github.com/Fluorine7/Fluorine7-PixInsight-Scripts/issues>
